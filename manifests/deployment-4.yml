@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "gebakscluster22-75c8"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "gebakscluster22-75c8"
+  template:
+    metadata:
+      labels:
+        app: "gebakscluster22-75c8"
+    spec:
+      containers:
+        - name: "gebakscluster22-75c8"
+          image: "ghostpanther.azurecr.io/gebakscluster22"
+          ports:
+          - containerPort: 80
