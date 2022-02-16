@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "sncakstestgeb-bac1"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "sncakstestgeb-bac1"
+  template:
+    metadata:
+      labels:
+        app: "sncakstestgeb-bac1"
+    spec:
+      containers:
+        - name: "sncakstestgeb-bac1"
+          image: "snacksrepo.azurecr.io/sncakstestgeb"
+          ports:
+          - containerPort: 80
