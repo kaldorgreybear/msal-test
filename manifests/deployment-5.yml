@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "spidermonkey-a47b"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "spidermonkey-a47b"
+  template:
+    metadata:
+      labels:
+        app: "spidermonkey-a47b"
+    spec:
+      containers:
+        - name: "spidermonkey-a47b"
+          image: "spidermonkey.azurecr.io/spidermonkey"
+          ports:
+          - containerPort: 80
