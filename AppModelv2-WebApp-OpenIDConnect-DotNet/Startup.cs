@@ -20,8 +20,7 @@ namespace AppModelv2_WebApp_OpenIDConnect_DotNet
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
         string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
-        string secret = "Iiv7Q~_Ddrwh2fRdJ.3fXQfje.1lM4WSj1EW2";
-
+    
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         public void Configuration(IAppBuilder app)
@@ -30,7 +29,7 @@ namespace AppModelv2_WebApp_OpenIDConnect_DotNet
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                CookieManager = new SystemWebCookieManager()
+                CookieManager = new SameSiteCookieManager()
             });
 
             app.UseOpenIdConnectAuthentication(
@@ -40,6 +39,7 @@ namespace AppModelv2_WebApp_OpenIDConnect_DotNet
                     Authority = authority,
                     PostLogoutRedirectUri = redirectUri,
                     RedirectUri = redirectUri,
+                    CookieManager = new SameSiteCookieManager(),
 
                     Notifications = new OpenIdConnectAuthenticationNotifications()
                     {
