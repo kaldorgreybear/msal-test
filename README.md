@@ -1,4 +1,4 @@
-# VERSION NOTES
+# KALDORGREYBEAR VERSION NOTES
 This version uses a sample ASP.NET implemenation of MSAL.  It also has a SameSite cookie manager that forces SECURE cookies via the response headers of the cookie.  This keeps a variety of auth issues (NONCE, missing SECURE on SameSite=None etc) from happening and allows older .NET apps to authenticate using openidconnect.
 
 The main changes are in sscm.cs (cookie manager) and Startup.cs (using the cookie manager in both auth methods).
