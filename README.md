@@ -4,7 +4,13 @@ This version uses a sample ASP.NET implemenation of MSAL.  It also has a SameSit
 The main changes are in sscm.cs (cookie manager) and Startup.cs (using the cookie manager in both auth methods).
 
 Everything else is from the stock MSFT code sample.
+---
+---
 
+
+
+
+# MICROSOFT CODE SAMPLE
 ---
 page_type: sample
 languages:
